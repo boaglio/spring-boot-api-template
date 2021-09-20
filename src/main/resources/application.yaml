@@ -1,0 +1,42 @@
+
+# default server port
+server:
+  port: 8080
+
+# information (endpoint /info)   
+info:
+  app:
+    name: Spring Boot API Template by Fernando Boaglio
+    version: @project.version@
+  java:
+     version: ${java.version}
+
+# DEBUG for development 
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+    com:
+      boaglio: DEBUG
+
+# Actuator features (endpoint /actuator)
+management:
+  health:
+    db:
+      enabled: true
+    defaults:
+      enabled: true
+    diskspace:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - mappings
+ 
